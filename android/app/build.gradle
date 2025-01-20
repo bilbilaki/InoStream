@@ -25,13 +25,12 @@ if (flutterVersionName == null) {
 }
 
 
-
 // For release APK or Bundle
 
 def keystoreProperties = new Properties()
-def keystorePropertiesFile = rootProject.file('nexthour.properties')
+def keystorePropertiesFile = rootProject.file('inostream.properties')
 if (keystorePropertiesFile.exists()) {
-   keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
 
 android {
@@ -69,14 +68,14 @@ android {
 
     // For release APK or Bundle
 
-   signingConfigs {
-       release {
-           keyAlias keystoreProperties['keyAlias']
-           keyPassword keystoreProperties['keyPassword']
-           storeFile file(keystoreProperties['storeFile'])
-           storePassword keystoreProperties['storePassword']
-       }
-   }
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
 
     buildTypes {
         release {
